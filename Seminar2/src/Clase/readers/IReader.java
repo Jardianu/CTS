@@ -6,6 +6,12 @@ import java.util.List;
 
 import Clase.Aplicant;
 
-public interface IReader {
-    List<Aplicant> readApplicants(String filename) throws FileNotFoundException, NumberFormatException;
+public abstract class IReader {
+    protected String filePath;
+
+    public IReader(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public abstract List<Aplicant> readApplicants() throws FileNotFoundException, NumberFormatException;
 }

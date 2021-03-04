@@ -7,12 +7,19 @@ import java.util.List;
 import java.util.Scanner;
 
 import Clase.Angajat;
+import Clase.Aplicant;
 
-public class AngajatiReader {
-    public static List<Angajat> readAngajati(String file) throws FileNotFoundException {
-        Scanner input2 = new Scanner(new File(file));
+public class AngajatiReader extends IReader{
+
+    public AngajatiReader(String filePath) {
+        super(filePath);
+    }
+
+    @Override
+    public List<Aplicant> readApplicants() throws FileNotFoundException, NumberFormatException {
+        Scanner input2 = new Scanner(new File(super.filePath));
         input2.useDelimiter(",");
-        List<Angajat> angajati = new ArrayList<Angajat>();
+        List<Aplicant> angajati = new ArrayList<Aplicant>();
 
         while (input2.hasNext()) {
             String nume = input2.next();

@@ -6,13 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Clase.Aplicant;
 import Clase.Student;
 
-public class StudentsReader {
-    public static List<Student> readStudents(String file) throws FileNotFoundException, NumberFormatException {
-        Scanner input = new Scanner(new File(file));
+public class StudentsReader extends IReader{
+
+    public StudentsReader(String filePath) {
+        super(filePath);
+    }
+
+    @Override
+    public List<Aplicant> readApplicants() throws FileNotFoundException, NumberFormatException {
+        Scanner input = new Scanner(new File(super.filePath));
         input.useDelimiter(",|\n");
-        List<Student> studenti = new ArrayList<Student>();
+        List<Aplicant> studenti = new ArrayList<Aplicant>();
 
         while (input.hasNext()) {
             String nume = input.next();
