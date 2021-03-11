@@ -1,45 +1,44 @@
-package Clase;
-
 import java.util.Arrays;
 
-public class Student extends Aplicant {
-	protected String facultate;
-	protected int an_studii;
+public class Angajat extends Aplicant{
+	private String ocupatie;
+	private int salariu;
 	
-	
-	public String getFacultate() {
-		return facultate;
+	public String getOcupatie() {
+		return ocupatie;
 	}
-	public void setFacultate(String facultate) {
-		this.facultate = facultate;
+	public void setOcupatie(String ocupatie) {
+		this.ocupatie = ocupatie;
 	}
-	public int getAn_studii() {
-		return an_studii;
+	public int getSalariu() {
+		return salariu;
 	}
-	public void setAn_studii(int an_studii) {
-		this.an_studii = an_studii;
+	public void setSalariu(int salariu) {
+		this.salariu = salariu;
 	}
-
-
-	public Student() {
+	public Angajat(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumire_Proiecte,int salariu,String ocupatie) {
+		super(nume,prenume,varsta,punctaj,nr_proiecte,denumire_Proiecte);
+		this.salariu = salariu;
+		this.ocupatie = ocupatie;
+	}
+	public Angajat() {
 		super();
 		
 	}
 	
-	public Student(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect, String facultate, int an_studii) {
-		super(nume,prenume,varsta,punctaj,nr_proiecte,denumireProiect);
-		this.facultate = facultate;
-		this.an_studii = an_studii;
-	}
+	
 	@Override
 	public String toString() {
-		return "Student: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte +  ", DenumireProiect=" + Arrays.toString(denumireProiect) + "Facultate=" + facultate + ", An_studii=" + an_studii ;
+		return "Angajat: Nume=" + nume + ", Prenume=" + prenume
+				+ ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte + ", DenumireProiect="
+				+ Arrays.toString(denumiriProiecte) + "Ocupatie=" + ocupatie + ", salariu=" + salariu;
 	}
 	
 	
 	public int finantare() {
-		int s=20;
-		System.out.println("Studentul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
+		int s=10;
+		// TODO Auto-generated method stub
+		System.out.println("Angajatul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
 		return s;
 	}
 	
