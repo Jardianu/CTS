@@ -6,10 +6,9 @@ public abstract class Aplicant{
 	protected int varsta;
 	protected int punctaj;
 	protected int nr_proiecte;
-
-
-	protected String[] denumiriProiect;
-
+	protected String[] denumiriProiecte;
+	
+	
 	public String getNume() {
 		return nume;
 	}
@@ -40,34 +39,22 @@ public abstract class Aplicant{
 	public void setPunctaj(int punctaj) {
 		this.punctaj = punctaj;
 	}
-
-
-	public String[] getDenumiriProiect() {
-		return denumiriProiect;
-	}
-
-	public void setDenumiriProiect(String[] denumiriProiect) {
-		this.denumiriProiect = denumiriProiect;
-	}
-
-	public void setVectorDenumiri(String[] denumiriProiect, int nr_proiecte){
-		this.nr_proiecte=nr_proiecte;
-		this.denumiriProiect=denumiriProiect;
-	}
+	
+	
 
 	
 	public Aplicant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumiriProiect) {
+	public Aplicant(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect) {
 		super();
 		this.nume = nume;
 		this.prenume = prenume;
 		this.varsta = varsta;
 		this.punctaj = punctaj;
 		this.nr_proiecte = nr_proiecte;
-		this.denumiriProiect = denumiriProiect;
+		this.denumiriProiecte = denumireProiect;
 	}
 	public int getNr_proiecte() {
 		return nr_proiecte;
@@ -76,4 +63,18 @@ public abstract class Aplicant{
 		this.nr_proiecte = nr_proiecte;
 	}
 
+	public String[] getDenumiriProiecte() {
+		return denumiriProiecte;
+	}
+
+	public void setDenumiriProiecte(String[] denumiriProiecte) {
+		this.denumiriProiecte = denumiriProiecte;
+	}
+
+	public void setVectorDenumiri(String[] denumiriProiecte, int nr_proiecte) {
+		this.nr_proiecte = nr_proiecte;
+		this.denumiriProiecte = denumiriProiecte;
+	}
+
+	public abstract float getSumaFinantare();
 }

@@ -1,45 +1,47 @@
+package Clase;
+
 import java.util.Arrays;
 
-public class Angajat extends Aplicant{
-	private String ocupatie;
-	private int salariu;
+public class Student extends Aplicant {
+	private static float sumaFinantare = 20;
+	protected String facultate;
+	protected int an_studii;
 	
-	public String getOcupatie() {
-		return ocupatie;
+	
+	public String getFacultate() {
+		return facultate;
 	}
-	public void setOcupatie(String ocupatie) {
-		this.ocupatie = ocupatie;
+	public void setFacultate(String facultate) {
+		this.facultate = facultate;
 	}
-	public int getSalariu() {
-		return salariu;
+	public int getAn_studii() {
+		return an_studii;
 	}
-	public void setSalariu(int salariu) {
-		this.salariu = salariu;
+	public void setAn_studii(int an_studii) {
+		this.an_studii = an_studii;
 	}
-	public Angajat(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumire_Proiecte,int salariu,String ocupatie) {
-		super(nume,prenume,varsta,punctaj,nr_proiecte,denumire_Proiecte);
-		this.salariu = salariu;
-		this.ocupatie = ocupatie;
-	}
-	public Angajat() {
+
+
+	public Student() {
 		super();
 		
 	}
 	
-	
+	public Student(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect, String facultate, int an_studii) {
+		super(nume,prenume,varsta,punctaj,nr_proiecte,denumireProiect);
+		this.facultate = facultate;
+		this.an_studii = an_studii;
+	}
 	@Override
 	public String toString() {
-		return "Angajat: Nume=" + nume + ", Prenume=" + prenume
-				+ ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte + ", DenumireProiect="
-				+ Arrays.toString(denumiriProiecte) + "Ocupatie=" + ocupatie + ", salariu=" + salariu;
+		return "Student: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nr_proiecte +  ", DenumireProiect=" + Arrays.toString(denumiriProiecte) + "Facultate=" + facultate + ", An_studii=" + an_studii ;
 	}
-	
-	
-	public int finantare() {
-		int s=10;
-		// TODO Auto-generated method stub
-		System.out.println("Angajatul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
-		return s;
+
+	public float getSumaFinantare() {
+		return sumaFinantare;
 	}
-	
+
+	public static void setSumaFinantare(float sumaFinantare) {
+		Student.sumaFinantare = sumaFinantare;
+	}
 }
