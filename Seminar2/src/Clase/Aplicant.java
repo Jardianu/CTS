@@ -27,12 +27,17 @@ public abstract class Aplicant{
 	public void setVarsta(int varsta) {
 		this.varsta = varsta;
 	}
-	public void statut(){
-		if(punctaj>80)
-			System.out.println("Aplicantul "+nume+" "+prenume+" a fost acceptat.");
-		else
-			System.out.println("Aplicantul "+nume+" "+prenume+" nu a fost acceptat.");
+
+	public void afisareRaspunsProiect(Proiect proiecte){
+		boolean eAcceptat = punctaj >= proiecte.getPragDeAcceptare();
+
+		StringBuilder stringBuilder = new StringBuilder("Aplicantul ").append(nume).append(" ").append(prenume);
+		System.out.println(
+				eAcceptat ? stringBuilder.append(" a fost acceptat") : stringBuilder.append(" a fost respins")
+		);
+
 		}
+
 	public int getPunctaj() {
 		return punctaj;
 	}
@@ -74,6 +79,18 @@ public abstract class Aplicant{
 	public void setVectorDenumiri(String[] denumiriProiecte, int nr_proiecte) {
 		this.nr_proiecte = nr_proiecte;
 		this.denumiriProiecte = denumiriProiecte;
+	}
+
+	@Override
+	public String toString() {
+		final StringBuilder sb = new StringBuilder("Aplicant:");
+		sb.append("nume='").append(nume).append('\'');
+		sb.append(", prenume='").append(prenume).append('\'');
+		sb.append(", varsta=").append(varsta);
+		sb.append(", punctaj=").append(punctaj);
+		sb.append(", nr_proiecte=").append(nr_proiecte);
+		sb.append(", denumiriProiecte=").append(Arrays.toString(denumiriProiecte));
+		return sb.toString();
 	}
 
 	public abstract float getSumaFinantare();
